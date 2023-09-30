@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App bg-gray-50">
       <Landing />
-      <RecordingReady />
+      {/* <RecordingReady /> */}
     </div>
   );
 }
