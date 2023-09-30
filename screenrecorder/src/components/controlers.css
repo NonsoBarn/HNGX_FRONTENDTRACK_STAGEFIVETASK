@@ -1,0 +1,101 @@
+.controller {
+  padding: 0 1rem;
+}
+
+.screenoption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 3.5rem;
+}
+
+.screenoption div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icons .icon {
+  width: 2rem;
+}
+
+.camera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border: 0.01rem solid rgb(30 27 75);
+  border-radius: 1rem;
+}
+
+.camera .sub {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.audio {
+  margin-top: 1.5rem;
+}
+
+.icons span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.button {
+  margin-top: 1rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+button {
+  padding: 1rem 5.3rem;
+  background-color: rgb(30 27 75);
+  color: white;
+  border-radius: 1rem;
+}
+
+button:hover {
+  background-color: rgb(37, 33, 101);
+  cursor: pointer;
+}
+
+/** Switch
+ -------------------------------------*/
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+/**
+ * 1. Adjust this to size
+ */
+
+.switch {
+  display: inline-block;
+  font-size: 20px; /* 1 */
+  height: 1em;
+  width: 2em;
+  background: rgb(30 27 75);
+  border-radius: 1em;
+}
+
+.switch div {
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background: #fff;
+  box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.switch input:checked + div {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
