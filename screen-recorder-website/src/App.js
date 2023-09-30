@@ -1,18 +1,12 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Howitworks from "./components/Howitworks";
-import Footer from "./components/Footer";
+import Landing from "./pages/Landing";
+import { RecordingReady } from "./pages/RecordingReady";
 
 function App() {
   return (
     <div className="App bg-gray-50">
-      <Navbar />
-      <Hero />
-      <Features />
-      <Howitworks />
-      <Footer />
+      <Landing />
+      <RecordingReady />
     </div>
   );
 }

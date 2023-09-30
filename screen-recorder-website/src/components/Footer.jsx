@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-indigo-950 lg:grid lg:grid-cols-4 py-20 px-20 flex justify-center items-start text-start">
+    <div className="bg-indigo-950 lg:grid lg:grid-cols-4 py-20 px-20 flex flex-col gap-y-8 justify-center items-center text-center lg:items-start lg:text-start">
       <div>
         <img src="/images/logo2.png" alt="" />
       </div>

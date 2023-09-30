@@ -39,16 +39,27 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     sendResponse(`processed: ${message.action}`);
 
+    const audioPreference = message.audioPreference;
+    const videoPreference = message.videoPreference;
+
+    const mediaConstraints = {
+      audio: audioPreference,
+      video: videoPreference
+        ? {
+            width: 9999999999,
+            height: 9999999999,
+          }
+        : false,
+    };
+
     navigator.mediaDevices
-      .getDisplayMedia({
-        audio: true,
-        video: {
-          width: 9999999999,
-          height: 9999999999,
-        },
-      })
+      .getDisplayMedia(mediaConstraints)
       .then((stream) => {
         onAccessApproved(stream);
+      })
+      .catch((error) => {
+        alert("Media Access Error: Enable Video capture.");
+        console.error("Error accessing media devices:", error);
       });
   }
 
