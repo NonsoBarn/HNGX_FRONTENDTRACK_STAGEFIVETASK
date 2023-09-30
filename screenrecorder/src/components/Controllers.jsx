@@ -1,5 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import RecordRTC from "recordrtc";
+
 import "../components/controlers.css";
 const Controllers = () => {
   const [videoEnabled, setVideoEnabled] = useState(true);
@@ -74,27 +75,27 @@ const Controllers = () => {
       };
 
       recorder.onstop = () => {
-        // const recordedBlob = new Blob(chunks, { type: "video/webm" });
-        // const videoUrl = URL.createObjectURL(recordedBlob);
+        const recordedBlob = new Blob(chunks, { type: "video/mp4" });
+        const videoUrl = URL.createObjectURL(recordedBlob);
 
-        // const a = document.createElement("a");
-        // a.href = videoUrl;
-        // a.download = "recorded-video.webm";
-        // a.textContent = "Download the recorded video";
-        // document.body.appendChild(a);
-
-        // URL.revokeObjectURL(videoUrl);
-        var blob = new Blob(recordedChunks, {
-          type: "video/webm",
-        });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement("a");
+        const a = document.createElement("a");
+        a.href = videoUrl;
+        a.download = "recorded-video.webm";
+        a.textContent = "Download the recorded video";
         document.body.appendChild(a);
-        a.style = "display: none";
-        a.href = url;
-        a.download = "test.webm";
-        a.click();
-        window.URL.revokeObjectURL(url);
+
+        URL.revokeObjectURL(videoUrl);
+        //   var blob = new Blob(recordedChunks, {
+        //     type: "video/webm",
+        //   });
+        //   var url = URL.createObjectURL(blob);
+        //   var a = document.createElement("a");
+        //   document.body.appendChild(a);
+        //   a.style = "display: none";
+        //   a.href = url;
+        //   a.download = "test.webm";
+        //   a.click();
+        //   window.URL.revokeObjectURL(url);
       };
 
       // Start recording
@@ -104,6 +105,33 @@ const Controllers = () => {
       console.error("Error capturing the screen: ", error);
     }
   };
+
+  ////////////////////////////////////
+  ///////////////////////////////////////
+  ////////////////////////////////////////
+  // const [recording, setRecording] = useState(null);
+
+  // const startRecording = async () => {
+  //   const stream = await navigator.mediaDevices.getDisplayMedia({
+  //     video: true,
+  //   });
+  //   const recorder = new RecordRTC(stream, {
+  //     type: "video",
+  //     mimeType: "video/webm",
+  //   });
+  //   recorder.startRecording();
+  //   setRecording(recorder);
+  // };
+
+  // const stopRecording = () => {
+  //   if (recording) {
+  //     recording.stopRecording(() => {
+  //       const blob = recording.getBlob();
+  //       const url = URL.createObjectURL(blob);
+  //       // Handle the recorded video URL as needed (e.g., save or display it).
+  //     });
+  //   }
+  // };
 
   return (
     <div className="controller">

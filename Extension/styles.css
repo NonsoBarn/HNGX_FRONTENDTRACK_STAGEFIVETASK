@@ -1,14 +1,72 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.content {
+  padding: 10px;
+  min-width: 300px;
+}
+
+/* .button_cont button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: teal;
+  color: white;
+  width: 100%;
+}
+
+.button_cont button:hover {
+  box-shadow: 1px 0px 10p #eee;
+} */
+
+/* control bar */
+
+.controlbar {
+  padding: 1rem 0.5rem;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.icon {
+  cursor: pointer;
+}
+.logo {
+  width: 10rem;
+}
+.span {
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  color: rgb(30 27 75);
+  margin-left: 1.2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+p {
+  width: 0.5rem;
+  text-align: center;
+}
+
+/* Controller */
 .controller {
   padding: 0 1rem;
 }
 
 .screenoption {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
   align-items: center;
   text-align: center;
-  padding: 2rem 3.5rem;
+  justify-content: space-between;
+  padding: 2rem 2rem;
 }
 
 .screenoption div {
@@ -23,10 +81,9 @@
 
 .camera {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0.8rem 1rem;
   border: 0.01rem solid rgb(30 27 75);
   border-radius: 1rem;
 }
@@ -47,13 +104,13 @@
 
 .button {
   margin-top: 1rem;
-  display: flex;
-  text-align: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 button {
-  padding: 1rem 5.3rem;
+  padding: 1rem 0rem;
+  width: 100%;
   background-color: rgb(30 27 75);
   color: white;
   border-radius: 1rem;
@@ -65,7 +122,7 @@ button:hover {
 }
 
 /** Switch
- -------------------------------------*/
+   -------------------------------------*/
 
 .switch input {
   position: absolute;
@@ -73,8 +130,8 @@ button:hover {
 }
 
 /**
- * 1. Adjust this to size
- */
+   * 1. Adjust this to size
+   */
 
 .switch {
   display: inline-block;
