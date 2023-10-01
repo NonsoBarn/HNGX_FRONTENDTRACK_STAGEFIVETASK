@@ -2,8 +2,11 @@ import React from "react";
 
 const Features = () => {
   return (
-    <div className=" pt-28 pb-10 bg-gray-50 flex flex-col justify-center items-center mt-40 px-10 lg:px-0">
-      <div className="lg:mb-10 mb-4">
+    <section
+      id="features"
+      className=" pt-28 pb-10 bg-gray-50 flex flex-col justify-center items-center mt-40 px-10 lg:px-0"
+    >
+      <div className=" flex flex-col text-center lg:mb-10 mb-4">
         <h2 className="text-[30px] font-bold text-indigo-950">Features</h2>
         <p className="tracking-wider">Key Highlights of Our Extension</p>
       </div>
@@ -69,7 +72,7 @@ const Features = () => {
           <img className="w-[550px]" src="/images/features.png" alt="" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

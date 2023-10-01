@@ -25,8 +25,8 @@ const Howitworks = () => {
     },
   ];
   return (
-    <div className="pt-28 pb-20 bg-gray-50">
-      <div className="lg:mb-20 mb-4">
+    <div id="hiw" className="pt-28 pb-20 bg-gray-50">
+      <div className="lg:mb-20 mb-4 flex flex-col text-center">
         <h2 className="text-[30px] font-bold text-indigo-950">How It works</h2>
       </div>
 
