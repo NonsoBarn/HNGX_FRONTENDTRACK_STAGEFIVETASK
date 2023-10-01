@@ -14,22 +14,59 @@ function onAccessApproved(stream) {
     });
   };
 
+  //////////////////////////////////
+  // Recording video
+  //   recorder.ondataavailable = function (event) {
+  //     let recordedBlob = event.data;
+  //     let url = URL.createObjectURL(recordedBlob);
+
+  //     let a = document.createElement("a");
+
+  //     a.style.display = "none";
+  //     a.href = url;
+  //     a.download = "screen-recording.webm";
+
+  //     document.body.appendChild(a);
+  //     a.click();
+
+  //     document.body.removeChild(a);
+
+  //     URL.revokeObjectURL(url);
+  //   };
+  // }
+
+  //////////////////////////////
+
+  // Sending Video to end point
   recorder.ondataavailable = function (event) {
     let recordedBlob = event.data;
-    let url = URL.createObjectURL(recordedBlob);
 
-    let a = document.createElement("a");
+    // Creating a FormData object to send the recordedBlob as a file
+    let formData = new FormData();
+    formData.append("video", recordedBlob, "screen-recording.webm");
 
-    a.style.display = "none";
-    a.href = url;
-    a.download = "screen-recording.webm";
+    // Defining the URL of your endpoint
+    let endpointUrl = "https://chrome-extension-887s.onrender.com/upload";
 
-    document.body.appendChild(a);
-    a.click();
-
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
+    // Make the POST request to the endpoint
+    fetch(endpointUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.text();
+        // You can handle the response here if needed
+      })
+      .then((data) => {
+        console.log("Video uploaded successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error uploading video:", error);
+      });
   };
 }
 
