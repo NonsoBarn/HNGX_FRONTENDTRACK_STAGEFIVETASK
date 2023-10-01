@@ -97,8 +97,6 @@ const RRtop = () => {
     );
   };
 
-  const RightSection = () => {};
-
   return (
     <div className="flex justify-center gap-[20rem] items-center px-28 py-24">
       <LeftSection />
