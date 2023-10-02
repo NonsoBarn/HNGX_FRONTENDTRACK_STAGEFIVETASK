@@ -45,13 +45,21 @@ function onAccessApproved(stream) {
     let formData = new FormData();
     formData.append("video", recordedBlob, "screen-recording.webm");
 
+    // var formData = new FormData();
+    // formData.append("blob", new Blob([recordedBlob], { type: "video/webm" }));
+    // formData.append("videoId", "23JIGstt");
+
     // Defining the URL of your endpoint
-    let endpointUrl = "https://chrome-extension-887s.onrender.com/upload";
+    let endpointUrl =
+      "https://amara-hngtask-chrome-extension.onrender.com/api/upload";
 
     // Make the POST request to the endpoint
     fetch(endpointUrl, {
       method: "POST",
-      mode: "no-cors",
+      // mode: "no-cors",
+      // headers: {
+      //   "Content-Type": "multipart/form-data",
+      // },
       body: formData,
     })
       .then((response) => {
@@ -59,10 +67,17 @@ function onAccessApproved(stream) {
           throw new Error("Network response was not ok");
         }
         return response.text();
+
         // You can handle the response here if needed
       })
       .then((data) => {
         console.log("Video uploaded successfully:", data);
+        console.log(data.public_id);
+
+        // Redirect the user to a website to view the video
+        let videoViewUrl =
+          "https://hngx-frontendtrack-stagefivetask.vercel.app/video/sample"; //
+        window.open(videoViewUrl, "_blank");
       })
       .catch((error) => {
         console.error("Error uploading video:", error);
