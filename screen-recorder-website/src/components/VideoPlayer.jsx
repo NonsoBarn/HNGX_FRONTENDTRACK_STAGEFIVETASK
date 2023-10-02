@@ -30,17 +30,17 @@ const VideoPlayer = ({ videoDetails }) => {
     // Create a new DOMParser
     const parser = new DOMParser();
 
-    // Parse the video HTML string into a DOM document
+    // Parsing the video HTML string into a DOM document
     const doc = parser.parseFromString(videoDetails, "text/html");
 
-    // Find the video element within the parsed document
+    // Finding the video element within the parsed document
     const videoElement = doc.querySelector("video");
 
     if (videoElement) {
-      // Find the source elements within the video element
+      // Finding the source elements within the video element
       const sourceElements = videoElement.querySelectorAll("source");
 
-      // Extract and set the video URLs from the source elements
+      // Extracting and set the video URLs from the source elements
       const urls = {};
       sourceElements.forEach((source) => {
         const type = source.getAttribute("type");
@@ -56,7 +56,7 @@ const VideoPlayer = ({ videoDetails }) => {
   return (
     <div>
       {/* Render the video HTML */}
-      <div dangerouslySetInnerHTML={{ __html: videoDetails }}></div>
+      {/* <div dangerouslySetInnerHTML={{ __html: videoDetails }}></div>
 
       <div>
         <h2>Extracted Video URLs:</h2>
@@ -65,13 +65,13 @@ const VideoPlayer = ({ videoDetails }) => {
           <li>MP4: {videoUrls.mp4}</li>
           <li>Ogg: {videoUrls.ogv}</li>
         </ul>
-      </div>
+      </div> */}
 
       {/* Screen */}
       <div className="border-2 rounded-md h-[410px] border-indigo-950">
         <div className="">
           <ReactPlayer
-            url="https://res.cloudinary.com/amarachi-2812/video/upload/l_subtitles:screen-recording_kr8i1h.transcript/fl_layer_apply/screen-recording_kr8i1h.mp4"
+            url={videoUrls.mp4}
             width={400}
             height={350}
             volume={1}
